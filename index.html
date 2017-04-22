@@ -5,12 +5,18 @@
     <meta charset="UTF-8">
     <title>Untitled Document</title>
     <script src="https://unpkg.com/vue">
-
-
     </script>
 </head>
 
 <body>
+
+    <div class="demo">
+        <input type="text" class="demo__input" v-model="message">
+        <p class="demo__print">사용자가 입력한 값은 <span class="demo__print-area">{{message}}</span>입니다.</p>
+        <hr>
+        <pre class="demo__print-data">{{message}}</pre>
+    </div>
+
     <div id="app">
         {{message}}
     </div>
@@ -44,10 +50,10 @@
         <p>{{message}}</p>
         <input v-model="message">
     </div>
-    
+
     <div id="app-7">
         <ol>
-           
+
             <todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>
         </ol>
     </div>
@@ -68,6 +74,15 @@
 
 
 <script>
+    
+   var demo = new Vue({
+            el: '.demo',
+            data: ({
+                message:'Hello Vue!!!'
+        })
+    })
+    
+    
     var app6 = new Vue({
         el: '#app-6',
         data: ({
@@ -156,6 +171,7 @@
             ]
         }
     })
-    
+
+
 
 </script>
