@@ -9,7 +9,9 @@
 </head>
 
 <body>
-
+    <div id="bind">
+        {{message}}
+    </div>
     <div class="demo">
         <input type="text" class="demo__input" v-model="message">
         <p class="demo__print">사용자가 입력한 값은 <span class="demo__print-area">{{message}}</span>입니다.</p>
@@ -62,7 +64,10 @@
         <input type="text" id="input" v-model="message">
         <p>The value of the input:{{message}}</p>
     </div>
-
+    <a v-bind:href="link" class="linkTest">
+       gogo 
+    </a>
+    <img id="yourimg" v-bind:src="source">
 
 
 
@@ -74,6 +79,32 @@
 
 
 <script>
+    
+    var linkTest = new Vue({
+        el:'.linkTest',
+        data:{
+            link:'http://wizwid.com'
+        }
+    })
+    
+    linkTest.link='http://naver.com';
+    
+    
+    var img = new Vue({
+        el:'#yourimg',
+        data:{  source:'http://post.phinf.naver.net/MjAxNzA0MTFfMzEg/MDAxNDkxOTA5OTE2MTMy.RK31rj9pOjwMhWsveZgGjWUcGjpbOrTAISmfPC4pTGIg.vcweL441F8oF1Spiu9mCqQgrclH7jmTe2oFSMLwOm4Mg.JPEG/i15296725664.jpg'
+        }
+        
+    })
+    
+    img.source='https://i.ytimg.com/vi/VG-rPpSkqTs/maxresdefault.jpg';
+    
+    const bind = new Vue({
+        el:'#bind',
+        data:({
+            message:'i`m mk'
+        })
+    })
     
    var demo = new Vue({
             el: '.demo',
@@ -89,6 +120,10 @@
             message: '안녕하세요. Vue!'
         })
     })
+    
+    app6.message='바뀌나?';
+    
+    
     var app5 = new Vue({
 
         el: '#app-5',
